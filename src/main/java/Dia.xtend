@@ -4,9 +4,9 @@ import java.time.DayOfWeek
 
 @Accessors
 class Dia {
-	DayOfWeek dia
-	int hora
-	int minuto
+	var DayOfWeek dia
+	var int hora
+	var int minuto
 	
 	new(DayOfWeek dia, int hora, int minuto){
 		this.dia = dia

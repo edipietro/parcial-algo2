@@ -6,6 +6,8 @@ class FuncionProgramada {
 	var List<Dia> dias
 	var Funcion func
 	var AdmDispositivo adm
+	var boolean esLunAVier = false
+	var boolean esSiempre = false
 	
 	new(List<Dia> dias, Funcion func, AdmDispositivo adm){
 		this.dias = dias
@@ -25,12 +27,25 @@ class FuncionProgramada {
 	}
 	
 	def boolean esElDia(LocalDateTime ldt){
-		dias.map(day | day.dia).contains(ldt.dayOfWeek)
+		(dias.map(day | day.dia).contains(ldt.dayOfWeek) || this.esLunAVier(ldt) || this.esSiempre)
+	}
+	
+	def void setEsLunAVier(boolean b){
+		esLunAVier = b
+	}
+	
+	def boolean esLunAVier(LocalDateTime ldt){
+		ldt.getDayOfWeek.getValue()<6
+	}
+	
+	def boolean setEsSiempre(boolean b){
+		esSiempre = b
 	}
 	
 	def boolean esLaHora(LocalDateTime ldt){
 		dias.map(day | day.hora).contains(ldt.hour)
 	}
+	
 	def boolean esElMinuto(LocalDateTime ldt){
 		dias.map(day | day.minuto).contains(ldt.minute)
 	}

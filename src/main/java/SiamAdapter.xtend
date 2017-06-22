@@ -1,14 +1,19 @@
 
+import org.eclipse.xtend.lib.annotations.Accessors
+
+@Accessors
 class SiamAdapter implements AdmDispositivo{
-	var int aux
-	Siam heladera
-	String modelo
-	String domicilio
+	private	var int aux
+	val Siam heladera
+	val String modelo
+	var String domicilio
+	var String numeroDuenio
 	
-	new(Siam heladera, String modelo, String domicilio){
+	new(Siam heladera, String modelo, String domicilio, String numeroDuenio){
 		this.heladera = heladera
 		this.modelo =  modelo
 		this.domicilio = domicilio
+		this.numeroDuenio = numeroDuenio
 	}
 	
 	override prender() {
@@ -20,7 +25,8 @@ class SiamAdapter implements AdmDispositivo{
 	}
 	
 	override validar() {
-		if(heladera.errorCode()!=0){
+		aux = heladera.errorCode()
+		if(aux!=0){
 			throw new BussinessException("La heladera tiene error: " + aux)
 		}
 	}
