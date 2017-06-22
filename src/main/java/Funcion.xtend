@@ -14,7 +14,7 @@ abstract class Funcion {
 	}
 	def void notificar() {
 		if(eve!=null){
-			eve.forEach(ev | ev.notificar(this))
+			eve.forEach[ev | ev.notificar(this)]
 		}
 	}
 	def void agregarEvento(EventosObserver ev){
@@ -30,14 +30,14 @@ abstract class Funcion {
 }
 class Prender extends Funcion{
 	override execute(AdmDispositivo adm){
-		adm.prender()
 		super.execute(adm)
+		adm.prender()
 	}
 }
 class Apagar extends Funcion{
 	override execute(AdmDispositivo adm){
-		adm.apagar()
 		super.execute(adm)
+		adm.apagar()
 	}
 }
 class Validar extends Funcion{

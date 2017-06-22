@@ -2,12 +2,8 @@
 import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
-class SiamAdapter implements AdmDispositivo{
-	private	var int aux
+class SiamAdapter extends AdmDispositivo{
 	val Siam heladera
-	val String modelo
-	var String domicilio
-	var String numeroDuenio
 	
 	new(Siam heladera, String modelo, String domicilio, String numeroDuenio){
 		this.heladera = heladera

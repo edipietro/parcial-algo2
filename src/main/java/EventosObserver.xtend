@@ -16,4 +16,11 @@ class EventosObserver {
 	def void notificar(Funcion func){
 		eventos.forEach[eve|eve.execute()]
 	}
+	
+	def enviarMail(){
+		val WspSender wsp = 
+			new WspSender(this.adm.numeroDuenio, 
+				"Error en "+adm.modelo + " nro " + adm.aux + " en dirección " + adm.domicilio + ".")
+		wsp.enviarMensaje()
+	}
 }

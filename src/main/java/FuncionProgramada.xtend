@@ -5,19 +5,17 @@ import java.time.LocalDateTime
 class FuncionProgramada {
 	var List<Dia> dias
 	var Funcion func
-	var AdmDispositivo adm
 	var boolean esLunAVier = false
 	var boolean esSiempre = false
 	
-	new(List<Dia> dias, Funcion func, AdmDispositivo adm){
+	new(List<Dia> dias, Funcion func){
 		this.dias = dias
 		this.func = func
-		this.adm = adm
 	}
 	
 	def void execute(){
 		if(this.esElMomento){
-			func.execute(adm)
+			func.execute(func.adm)
 		}
 	}
 	
@@ -38,7 +36,7 @@ class FuncionProgramada {
 		ldt.getDayOfWeek.getValue()<6
 	}
 	
-	def boolean setEsSiempre(boolean b){
+	def void setEsSiempre(boolean b){
 		esSiempre = b
 	}
 	

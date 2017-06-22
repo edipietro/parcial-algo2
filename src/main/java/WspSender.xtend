@@ -6,5 +6,5 @@ class WspSender {
 		this.telefono=telefono
 		this.texto=texto
 	}
-	
+	def void enviarMensaje(){}
 }
